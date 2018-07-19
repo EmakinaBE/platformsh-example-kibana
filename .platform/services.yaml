@@ -1,3 +1,0 @@
-es:
-    type: elasticsearch:5.2
-    disk: 4024
