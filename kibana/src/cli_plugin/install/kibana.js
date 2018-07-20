@@ -6,6 +6,12 @@ Object.defineProperty(exports, '__esModule', {
 exports.existingInstall = existingInstall;
 
 var rebuildCache = _asyncToGenerator(function* (settings, logger) {
+  if (settings.skipOptimize) {
+    logger.log('Skip optimize task due to given settings (--skip-optimize). ' +
+      'Remember to run a dedicated optimization task before starting Kibana !');
+    return;
+  }
+
   logger.log('Optimizing and caching browser bundles...');
   var serverConfig = _lodash2['default'].merge((0, _cliServeRead_yaml_config2['default'])(settings.config), {
     env: 'production',
